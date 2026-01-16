@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Chekhov Coffee — атмосферная кофейня в историческом особняке. Авторский кофе, домашняя выпечка, уникальный интерьер." />
+    <title>Chekhov Coffee — Атмосферная кофейня в центре города</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="nav">
+      <div class="nav-container">
+        <a href="#" class="logo">
+          <img src="assets/logo.png" alt="Chekhov Coffee" />
+        </a>
+        <ul class="nav-menu">
+          <li><a href="#about">О нас</a></li>
+          <li><a href="#menu">Меню</a></li>
+          <li><a href="#gallery">Галерея</a></li>
+          <li><a href="#reviews">Отзывы</a></li>
+          <li><a href="#contact">Контакты</a></li>
+        </ul>
+        <button class="nav-toggle" aria-label="Открыть меню">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <h1 class="hero-title">Chekhov Coffee</h1>
+        <p class="hero-subtitle">Атмосферная кофейня в старинном особняке</p>
+        <a href="#contact" class="btn btn-primary">Посетить нас</a>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section about">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">О кофейне</h2>
+          <p class="section-subtitle">Уникальное место с историей и душой</p>
+        </div>
+        <div class="about-content">
+          <div class="about-text">
+            <p>
+              Chekhov Coffee — это атмосферная кофейня, расположенная в
+              историческом особняке купца Тамазова конца XIX века. Здесь каждая
+              деталь создает неповторимую обстановку: от антикварной посуды и
+              живых растений до оригинальных картин на стенах.
+            </p>
+            <p>
+              Мы предлагаем авторский кофе, приготовленный профессиональными
+              бариста, свежую выпечку и десерты. Наше пространство идеально
+              подходит для спокойного отдыха, встреч с друзьями или работы в
+              комфортной обстановке.
+            </p>
+          </div>
+          <div class="about-features">
+            <div class="feature-card">
+              <div class="feature-icon">☕</div>
+              <h3>Авторский кофе</h3>
+              <p>
+                Профессиональные бариста готовят напитки по классическим и
+                авторским рецептам
+              </p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">🥐</div>
+              <h3>Свежая выпечка</h3>
+              <p>
+                Круассаны, пироги и десерты собственного производства каждый
+                день
+              </p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">🎨</div>
+              <h3>Уникальный интерьер</h3>
+              <p>
+                Атмосферное пространство с картинами, растениями и антикварными
+                предметами
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="section menu">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Меню</h2>
+          <p class="section-subtitle">Напитки и десерты на любой вкус</p>
+        </div>
+        <div class="menu-content">
+          <div class="menu-category">
+            <h3 class="menu-category-title">Кофе</h3>
+            <div class="menu-grid">
+              <div class="menu-item">
+                <h4>Эспрессо</h4>
+                <p>Классический крепкий кофе</p>
+              </div>
+              <div class="menu-item">
+                <h4>Капучино</h4>
+                <p>Эспрессо с молочной пенкой</p>
+              </div>
+              <div class="menu-item">
+                <h4>Латте</h4>
+                <p>Нежный кофе с молоком</p>
+              </div>
+              <div class="menu-item">
+                <h4>Кофе в турке</h4>
+                <p>Приготовлен традиционным способом</p>
+              </div>
+              <div class="menu-item">
+                <h4>Пряный латте</h4>
+                <p>Авторский напиток с пряностями</p>
+              </div>
+              <div class="menu-item">
+                <h4>Латте апельсин</h4>
+                <p>Освежающий кофе с цитрусовыми нотами</p>
+              </div>
+            </div>
+          </div>
+          <div class="menu-category">
+            <h3 class="menu-category-title">Другие напитки</h3>
+            <div class="menu-grid">
+              <div class="menu-item">
+                <h4>Матча латте</h4>
+                <p>Зеленый чай матча с молоком</p>
+              </div>
+              <div class="menu-item">
+                <h4>Какао</h4>
+                <p>Натуральный горячий шоколад</p>
+              </div>
+              <div class="menu-item">
+                <h4>Чай</h4>
+                <p>Большой выбор сортов</p>
+              </div>
+              <div class="menu-item">
+                <h4>Лимонад</h4>
+                <p>Домашний освежающий лимонад</p>
+              </div>
+            </div>
+          </div>
+          <div class="menu-category">
+            <h3 class="menu-category-title">Десерты и выпечка</h3>
+            <div class="menu-grid">
+              <div class="menu-item">
+                <h4>Круассаны</h4>
+                <p>Свежие хрустящие круассаны с разными начинками</p>
+              </div>
+              <div class="menu-item">
+                <h4>Цветаевский пирог</h4>
+                <p>Фирменный десерт заведения</p>
+              </div>
+              <div class="menu-item">
+                <h4>Пирожные</h4>
+                <p>Ассортимент авторских десертов</p>
+              </div>
+              <div class="menu-item">
+                <h4>Конфеты</h4>
+                <p>Избранные сладости</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="section gallery">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Атмосфера</h2>
+          <p class="section-subtitle">Заглянуте в наш мир</p>
+        </div>
+        <div class="gallery-grid">
+          <div class="gallery-item">
+            <img src="assets/atmosphere1.webp" alt="Интерьер кофейни" />
+          </div>
+          <div class="gallery-item">
+            <img src="assets/atmosphere2.webp" alt="Атмосфера кофейни" />
+          </div>
+          <div class="gallery-item">
+            <img src="assets/atmosphere3.webp" alt="Уютное пространство" />
+          </div>
+          <div class="gallery-item">
+            <img src="assets/coffee1.webp" alt="Кофе" />
+          </div>
+          <div class="gallery-item">
+            <img src="assets/coffee2.webp" alt="Латте арт" />
+          </div>
+          <div class="gallery-item">
+            <img src="assets/atmosphere4.webp" alt="Детали интерьера" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section id="reviews" class="section reviews">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Отзывы гостей</h2>
+          <p class="section-subtitle">Более 200 положительных отзывов</p>
+        </div>
+        <div class="reviews-slider">
+          <div class="review-card active">
+            <div class="review-text">
+              <p>
+                "Очень атмосферное заведение, приятная музыка, хорошее и вкусное
+                кофе, приятный персонал. Матча приготовлена вкусно, латте тоже.
+                Я очень советую это заведение."
+              </p>
+            </div>
+            <div class="review-author">Глеб Шемяк</div>
+          </div>
+          <div class="review-card">
+            <div class="review-text">
+              <p>
+                "Великолепное атмосферное место. Вкусный кофе, красивая посуда,
+                нежнейшие круассаны, конфеты, пирожные, оригинальные картины на
+                стенах, много живых растений. Я получила настоящее эстетическое
+                удовольствие."
+              </p>
+            </div>
+            <div class="review-author">Крайних Наталия</div>
+          </div>
+          <div class="review-card">
+            <div class="review-text">
+              <p>
+                "Идеальный кофе, идеальный какао, идеальный горячий шоколад,
+                идеальный круассан, идеальный бариста. Спасибо большое, очень
+                вкусно и эстетично."
+              </p>
+            </div>
+            <div class="review-author">Anna Kapralova</div>
+          </div>
+          <div class="review-card">
+            <div class="review-text">
+              <p>
+                "На мой взгляд лучшие круассаны в городе. Пробовала с малиной
+                фисташкой (свежие, хрустящие и просто невероятно вкусные).
+                Прекрасный кофе. Очень понравился интерьер и музыка в
+                заведении."
+              </p>
+            </div>
+            <div class="review-author">Ольга</div>
+          </div>
+          <div class="review-card">
+            <div class="review-text">
+              <p>
+                "Заведение работает давно, а я почему-то посетил его только
+                сейчас. Но теперь это моя любимая кофейня в городе. Удачное
+                сочетание приятного интерьера и хорошего кофе. Лучшие десерты."
+              </p>
+            </div>
+            <div class="review-author">Alexander N.</div>
+          </div>
+          <div class="review-card">
+            <div class="review-text">
+              <p>
+                "Отличное, уютное место и вкусный кофе. Иногда прихожу посидеть,
+                попить кофе и подумать о своем. Очень спокойная обстановка,
+                которая по настоящему позволяет улетучиться от повседневной
+                суеты."
+              </p>
+            </div>
+            <div class="review-author">Сергей Люльченко</div>
+          </div>
+        </div>
+        <div class="reviews-controls">
+          <button class="review-prev" aria-label="Предыдущий отзыв">←</button>
+          <button class="review-next" aria-label="Следующий отзыв">→</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Контакты</h2>
+          <p class="section-subtitle">Будем рады видеть вас</p>
+        </div>
+        <div class="contact-content">
+          <div class="contact-info">
+            <div class="contact-item">
+              <div class="contact-icon">📍</div>
+              <div>
+                <h3>Адрес</h3>
+                <p>
+                  Краснодар, Гимназическая улица, 79<br />Центральный микрорайон
+                </p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">🕐</div>
+              <div>
+                <h3>Часы работы</h3>
+                <p>Понедельник — воскресенье<br />9:00 — 22:00</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">📞</div>
+              <div>
+                <h3>Телефон</h3>
+                <p><a href="tel:+79001234567">+7 (900) 123-45-67</a></p>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">💬</div>
+              <div>
+                <h3>Telegram</h3>
+                <p>
+                  <a
+                    href="https://t.me/chekhovcoffee"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >@chekhovcoffee</a
+                  >
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="contact-map-wrapper">
+            <div class="map">
+              <iframe
+                src="https://yandex.ru/map-widget/v1/?ll=38.974623%2C45.024785&z=17&l=map&pt=38.974623,45.024785,pm2rdm"
+                width="100%"
+                height="100%"
+                frameborder="0"
+                style="border: 0"
+                allowfullscreen="">
+              </iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h4>Chekhov Coffee</h4>
+            <p>Атмосферная кофейня в историческом центре Краснодара</p>
+          </div>
+          <div class="footer-section">
+            <h4>Навигация</h4>
+            <ul>
+              <li><a href="#about">О нас</a></li>
+              <li><a href="#menu">Меню</a></li>
+              <li><a href="#gallery">Галерея</a></li>
+              <li><a href="#reviews">Отзывы</a></li>
+              <li><a href="#contact">Контакты</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Контакты</h4>
+            <p>Краснодар, Гимназическая ул., 79</p>
+            <p>Телефон: <a href="tel:+79001234567">+7 (900) 123-45-67</a></p>
+          </div>
+          <div class="footer-section">
+            <h4>Юридическая информация</h4>
+            <ul>
+              <li><a href="privacy.html">Политика конфиденциальности</a></li>
+              <li><a href="agreement.html">Согласие на обработку данных</a></li>
+              <li><a href="marketing.html">Соглашение о рассылке</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2026 Chekhov Coffee. Все права защищены.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
