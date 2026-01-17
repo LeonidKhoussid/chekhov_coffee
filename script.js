@@ -161,22 +161,61 @@ window.addEventListener('scroll', () => {
 const hero = document.querySelector('.hero');
 const heroOverlay = document.querySelector('.hero-overlay');
 
-window.addEventListener('scroll', () => {
-    const scrolled = window.pageYOffset;
-    const parallax = scrolled * 0.4;
-    const opacity = Math.min(0.88 + (scrolled / 1000), 0.95);
+let ticking = false;
+let lastScrollY = 0;
 
-    if (hero && scrolled < hero.offsetHeight) {
+function updateParallax() {
+    if (!hero) return;
+    
+    const scrolled = window.pageYOffset || window.scrollY;
+    const heroHeight = hero.offsetHeight;
+    
+    if (scrolled < heroHeight) {
+        const parallax = scrolled * 0.3;
+        const opacity = Math.min(0.88 + (scrolled / 1000), 0.95);
+        
         // Only apply parallax on desktop
         if (window.innerWidth > 768) {
             hero.style.backgroundPositionY = `${parallax}px`;
+        } else {
+            hero.style.backgroundPositionY = 'center';
         }
 
         if (heroOverlay) {
             heroOverlay.style.background = `linear-gradient(135deg, rgba(15, 20, 25, ${opacity}), rgba(26, 31, 46, ${opacity - 0.1}))`;
         }
+    } else {
+        // Reset when scrolled past hero
+        if (window.innerWidth > 768) {
+            hero.style.backgroundPositionY = `${heroHeight * 0.3}px`;
+        }
     }
-});
+    
+    lastScrollY = scrolled;
+    ticking = false;
+}
+
+function requestParallaxTick() {
+    if (!ticking) {
+        requestAnimationFrame(updateParallax);
+        ticking = true;
+    }
+}
+
+// Initialize on load
+if (hero) {
+    updateParallax();
+}
+
+// Throttled scroll handler
+window.addEventListener('scroll', requestParallaxTick, { passive: true });
+
+// Handle resize
+window.addEventListener('resize', () => {
+    if (hero) {
+        updateParallax();
+    }
+}, { passive: true });
 
 // ==========================================================================
 // Image Lazy Loading Enhancement
