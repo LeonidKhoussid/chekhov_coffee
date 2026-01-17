@@ -45,39 +45,46 @@ window.addEventListener('scroll', () => {
 });
 
 // ==========================================================================
-// Reviews Slider
+// Reviews Carousel
 // ==========================================================================
 
-const reviewCards = document.querySelectorAll('.review-card');
-const prevBtn = document.querySelector('.review-prev');
-const nextBtn = document.querySelector('.review-next');
-let currentReview = 0;
+const reviewsCarousel = document.querySelector('.reviews-carousel');
+const reviewsWrapper = document.querySelector('.reviews-carousel-wrapper');
 
-function showReview(index) {
-    reviewCards.forEach((card, i) => {
-        card.classList.remove('active');
-        if (i === index) {
-            card.classList.add('active');
+// Respect user's motion preferences
+if (reviewsCarousel && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    reviewsCarousel.style.animation = 'none';
+}
+
+// Pause animation when tab is not visible
+document.addEventListener('visibilitychange', () => {
+    if (reviewsCarousel) {
+        if (document.hidden) {
+            reviewsCarousel.style.animationPlayState = 'paused';
+        } else {
+            reviewsCarousel.style.animationPlayState = 'running';
+        }
+    }
+});
+
+// Smooth pause/resume on hover (handled by CSS, but adding JS fallback)
+if (reviewsWrapper) {
+    let hoverTimeout;
+    
+    reviewsWrapper.addEventListener('mouseenter', () => {
+        if (reviewsCarousel) {
+            reviewsCarousel.style.animationPlayState = 'paused';
         }
     });
-}
 
-function nextReview() {
-    currentReview = (currentReview + 1) % reviewCards.length;
-    showReview(currentReview);
-}
-
-function prevReview() {
-    currentReview = (currentReview - 1 + reviewCards.length) % reviewCards.length;
-    showReview(currentReview);
-}
-
-if (nextBtn && prevBtn) {
-    nextBtn.addEventListener('click', nextReview);
-    prevBtn.addEventListener('click', prevReview);
-
-    // Auto-advance reviews every 5 seconds
-    setInterval(nextReview, 5000);
+    reviewsWrapper.addEventListener('mouseleave', () => {
+        if (reviewsCarousel) {
+            // Small delay before resuming for better UX
+            hoverTimeout = setTimeout(() => {
+                reviewsCarousel.style.animationPlayState = 'running';
+            }, 300);
+        }
+    });
 }
 
 // ==========================================================================
@@ -152,13 +159,22 @@ window.addEventListener('scroll', () => {
 // ==========================================================================
 
 const hero = document.querySelector('.hero');
+const heroOverlay = document.querySelector('.hero-overlay');
 
 window.addEventListener('scroll', () => {
     const scrolled = window.pageYOffset;
-    const parallax = scrolled * 0.5;
+    const parallax = scrolled * 0.4;
+    const opacity = Math.min(0.88 + (scrolled / 1000), 0.95);
 
     if (hero && scrolled < hero.offsetHeight) {
-        hero.style.backgroundPositionY = `${parallax}px`;
+        // Only apply parallax on desktop
+        if (window.innerWidth > 768) {
+            hero.style.backgroundPositionY = `${parallax}px`;
+        }
+
+        if (heroOverlay) {
+            heroOverlay.style.background = `linear-gradient(135deg, rgba(15, 20, 25, ${opacity}), rgba(26, 31, 46, ${opacity - 0.1}))`;
+        }
     }
 });
 
@@ -202,3 +218,54 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
+
+// ==========================================================================
+// Animated Background Performance Optimization
+// ==========================================================================
+
+// Pause animations when page is not visible for better performance
+let animationPaused = false;
+
+document.addEventListener('visibilitychange', () => {
+    animationPaused = document.hidden;
+
+    const particles = document.querySelectorAll('.particle, .steam');
+    const bodyBg = document.querySelector('body::before');
+
+    if (animationPaused) {
+        particles.forEach(particle => {
+            particle.style.animationPlayState = 'paused';
+        });
+        // Note: CSS pseudo-elements can't be directly controlled via JS
+        // The reduced motion media query handles this case
+    } else {
+        particles.forEach(particle => {
+            particle.style.animationPlayState = 'running';
+        });
+    }
+});
+
+// Optimize animations based on device performance
+const isLowPerformanceDevice = () => {
+    // Check for mobile devices or slow connections
+    return window.innerWidth < 768 ||
+           navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 2 ||
+           navigator.connection && navigator.connection.effectiveType === 'slow-2g';
+};
+
+if (isLowPerformanceDevice()) {
+    // Reduce animation complexity on low-performance devices
+    const particles = document.querySelectorAll('.particle');
+    particles.forEach(particle => {
+        particle.style.display = 'none';
+    });
+
+    // Slow down steam animations
+    const steams = document.querySelectorAll('.steam');
+    steams.forEach(steam => {
+        steam.style.animationDuration = '15s';
+    });
+}
+
+// Subtle parallax effect for background elements (disabled to avoid conflicts with CSS animations)
+// The CSS animations handle the particle movement more efficiently
